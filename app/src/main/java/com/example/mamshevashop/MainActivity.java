@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addBtn.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
-                        View outputDBRoe = (View) view.getParent();
-                        ViewGroup outputDB = (ViewGroup) outputDBRoe.getParent();
-                        outputDB.removeView(outputDBRoe);
+                        View outputDBRow = (View) view.getParent();
+                        ViewGroup outputDB = (ViewGroup) outputDBRow.getParent();
+                        outputDB.removeView(outputDBRow);
                         outputDB.invalidate();
                         Summa += Float.parseFloat(OutPutAut.getText().toString());
-                        TxtSumma.setText("" + Summa);
+                        TxtSumma.setText(Summa+" руб.");
                         UpdateTable();
                     }
                 });
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnOrder:
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Сумма заказа:" +Summa, Toast.LENGTH_SHORT);
+                        "Сумма заказа: " +Summa+" руб.", Toast.LENGTH_SHORT);
                 toast.show();
                 Summa=0;
                 TxtSumma.setText("0 руб");
